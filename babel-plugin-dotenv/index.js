@@ -15,7 +15,7 @@ module.exports = function (data) {
                   return;
 
                 var configDir = options.configDir ? options.configDir : './';
-                var configFile = options.filename ? options.filename : '.env';
+                var configFile = process.env.DOTENV_FILENAME ? process.env.DOTENV_FILENAME : options.filename ? options.filename : '.env';
 
                 if (path.node.source.value === options.replacedModuleName) {
                   var config = dotEnv.config({ path: sysPath.join(configDir, configFile), silent: true }) || {};
